@@ -1,0 +1,150 @@
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color:#2E354E;
+    color: white;
+  }
+  nav {
+    background-color: #111;
+    text-align: center;
+    padding: 1em;
+  }
+  nav a {
+    margin: 0 1em;
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+  }
+  nav a:hover, .active {
+    color: #00ffff;
+  }
+  .hero {
+    text-align: center;
+    padding: 50px;
+  }
+  .btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #00ffff;
+    color: black;
+    text-decoration: none;
+    box-shadow: 0 0 10px #00ffff;
+  }
+  .services {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    padding: 2em;
+  }
+  .card {
+    background: #333;
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #ff00ff;
+    width: 200px;
+    text-align: center;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 2em auto;
+  }
+  input, select {
+    padding: 0.5em;
+    margin-bottom: 1em;
+    border: none;
+    border-radius: 5px;
+  }
+  button {
+    background: #00ffff;
+    color: black;
+    padding: 0.7em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  #message {
+    margin-top: 1em;
+    font-weight: bold;
+  }
+  .about-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2em;
+    padding: 2em;
+  }
+  
+  .about-text {
+    flex: 1;
+  }
+  
+  .about-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .about-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  }
+  .image-block {
+    max-width: 800px;
+    margin: 2em auto;
+  }
+  
+  .top-img {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    display: block;
+  }
+  
+  .bottom-img-row {
+    display: flex;
+    width: 100%;
+  }
+  
+  .half-img {
+    width: 50%;
+    object-fit: cover;
+    border: none;
+    display: block;
+  }
+  .top-img {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    display: block;
+    margin-bottom: 1em; /* ← вот это добавляет отступ */
+  }
+.image-block {
+  max-width: 800px;
+  margin: 2em auto;
+}
+
+.top-img {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+  display: block;
+  margin-bottom: 1em; /* ⬅ отступ между верхней и нижними картинками */
+}
+
+.bottom-img-row {
+  display: flex;
+  width: 100%;
+  gap: 1em; /* ⬅ отступ между нижней левой и правой картинкой */
+}
+
+.half-img {
+  width: 50%;
+  object-fit: cover;
+  border: none;
+  display: block;
+  border-radius: 0 0 10px 10px;
+}
+    
+  
