@@ -1,38 +1,60 @@
-<!-- JS дополнение -->
-const themeToggle = document.getElementById("themeToggle");
-const body = document.body;
+// hilow.js (обновлённая версия + вдохновляющее сообщение + обработка формы обратной связи)
 
-themeToggle.addEventListener("click", () => {
-  body.classList.toggle("light-theme");
-});
+const form = document.getElementById("regForm");
+if (form) {
+  const name = document.getElementById("name");
+  const email = document.getElementById("email");
+  const password = document.getElementById("password");
+  const confirmPassword = document.getElementById("confirmPassword");
+  const service = document.getElementById("service");
+  const message = document.getElementById("message");
 
-// Прогресс-бар при прокрутке
-const progressBar = document.getElementById("progressBar");
-window.onscroll = function () {
-  let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-  let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  let scrolled = (winScroll / height) * 100;
-  progressBar.style.width = scrolled + "%";
-};
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+    message.style.color = "red";
 
-// Fade-in эффект
-const fadeElems = document.querySelectorAll('.fade-in');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!name.value.trim()) {
+      message.textContent = "Введите имя.";
+      return;
     }
-  });
-}, { threshold: 0.1 });
 
-fadeElems.forEach(el => observer.observe(el));
-if (name.value.trim().length < 2) {
-  message.textContent = "Введите имя длиной от 2 символов.";
-  message.style.color = "red";
-  return;
+    if (!emailPattern.test(email.value)) {
+      message.textContent = "Введите корректный email.";
+      return;
+    }
+
+    if (password.value.length < 6) {
+      message.textContent = "Пароль должен быть не менее 6 символов.";
+      return;
+    }
+
+    if (password.value !== confirmPassword.value) {
+      message.textContent = "Пароли не совпадают.";
+      return;
+    }
+
+    if (!service.value) {
+      message.textContent = "Выберите тип услуги.";
+      return;
+    }
+
+    message.style.color = "#00ff99";
+    message.textContent = "Регистрация прошла успешно! Добро пожаловать в сообщество тех, кто создаёт будущее! 🚀";
+    form.reset();
+  });
 }
-message.textContent = "Загрузка...";
-setTimeout(() => {
-  message.textContent = "Регистрация успешна!";
-  message.style.color = "green";
-}, 2000);
+
+// Обработка формы обратной связи на главной
+const feedbackForm = document.getElementById("feedbackForm");
+const feedbackMessage = document.getElementById("feedbackMessage");
+
+if (feedbackForm) {
+  feedbackForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    feedbackMessage.textContent = "Спасибо за сообщение! Мы обязательно свяжемся с вами.";
+    feedbackMessage.style.color = "#00ff99";
+    feedbackForm.reset();
+  });
+}
